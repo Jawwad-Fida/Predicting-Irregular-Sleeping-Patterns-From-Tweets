@@ -1,6 +1,4 @@
-# Predict Irregular Sleeping Patterns from Tweets
-
-## Overview
+# Overview
 Predict whether a user is suffering from ISP based on their social media interactions on Twitter. We identify users' ISP from their psycholinguistic characteristics and social media word usage patterns.
 
  - **Domain**:  Data Science, Deep Learning, Natural Language Processing, Mental Health, Psycholinguistic Patterns, Social Media.
@@ -9,51 +7,11 @@ Predict whether a user is suffering from ISP based on their social media interac
 ## Authors
 
 - **Corresponding author:** [Dr. Md. Saddam Hossain Mukta](https://cse.uiu.ac.bd/profiles/saddam/), Associate Professor and Undergraduate Coordinator, United International University (UIU), Bangladesh
-- **Other authors:** [Mohammed Jawwadul Islam](https://www.linkedin.com/in/jawwadfida/), [Mohammad Fahad Al Rafi](https://www.linkedin.com/in/md-fahad-al-al-rafi-14b968111/), [Moumy Kabir](https://www.linkedin.com/in/pranto-podder-b78b97162/), [Pranto Podder](https://www.linkedin.com/in/aysha-siddika-577ba5224/), [Aysha Siddika](https://www.linkedin.com/in/moumy-kabir-156a0a232/), Nafisa Akhter, and [Dr. Mohammed Eunus Ali](https://cse.buet.ac.bd/faculty_list/detail/eunus), Professor, Bangladesh University of Engineering and Technology (BUET), Bangladesh. 
+- **Other authors:** [Mohammed Jawwadul Islam](https://www.linkedin.com/in/jawwadfida/), [Mohammad Fahad Al Rafi](https://www.linkedin.com/in/md-fahad-al-al-rafi-14b968111/), Nafisa Akhter, [Moumy Kabir](https://www.linkedin.com/in/pranto-podder-b78b97162/), [Pranto Podder](https://www.linkedin.com/in/aysha-siddika-577ba5224/), [Aysha Siddika](https://www.linkedin.com/in/moumy-kabir-156a0a232/), and [Dr. Mohammed Eunus Ali](https://cse.buet.ac.bd/faculty_list/detail/eunus), Professor, Bangladesh University of Engineering and Technology (BUET), Bangladesh. 
 
-## Dataset 
+# Dataset 
 
-yeee
-
-
-## Installing software and files
-To do the project, we need to install some softwares and files. In this regard, we will be doing all the implementations in Python language on jupyter notebook. To install jupyter notebook and launch other application and files at first we have to download Anaconda which is free.
-
-Link to Download Anaconda : https://www.anaconda.com/?modal=nucleus-commercial
-
-Guideline for installing Anaconda : https://www.geeksforgeeks.org/how-to-install-anaconda-on-windows/
-
-Once Anaconda is downloaded and installed successfully, we may proceed to download Jupyter notebook.
-
-## Download and Install Jupyter Notebook
-Link to download Jupyter using Anaconda : https://docs.anaconda.com/ae-notebooks/4.3.1/user-guide/basic-tasks/apps/jupyter/
-
-More informations : https://mas-dse.github.io/startup/anaconda-windows-install/
-
-Guideline to use Jupyter notebook : https://www.dataquest.io/blog/jupyter-notebook-tutorial/
-
-## Using Google Colaboratory
-For implementing the project with no configuration we can use Google Colaboratory as well.
-
-## Installing Python libraries and packages
-The required python libraries and packages are,
-- pandas
-- Numpy
-- sklearn
-- matplotlib
-- demoji
-- langdetect
-- googletrans==3.1.0a0
-- datetime
-- nltk
-- tensorflow
-
-# Software Diagram 
-<img src="https://user-images.githubusercontent.com/64092765/189374995-ba697453-f53d-4f98-b3a4-0738f0cc9cce.png" width="75%">
-
-
-# Methodology 
-<img src="https://user-images.githubusercontent.com/64092765/189373593-63fe8146-9076-4012-ba53-d7f706e06053.png" width="75%">
+When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), we collect tweets after getting permission from Twitter, which should not be exposed publicly without their consent. Hence, we cannot share the actual raw dataset. We are sharing a modified form containing relevant tweets to understand users' psychological behavior.
 
 
 # Data Collection
