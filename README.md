@@ -14,7 +14,7 @@ Predict whether a user is suffering from ISP based on their social media interac
 
 ## Data Availability
 
-When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), we collect tweets after getting permission from Twitter, which should not be exposed publicly without their consent. Hence, we cannot share the actual raw dataset. We are sharing a modified form containing relevant tweets to understand users' psychological behavior.
+When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. We collect tweets after getting permission from Twitter. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), the tweets collected are their public property, which should only be exposed partially publicly with their consent, a consent that is granted with the Twitter API. Therefore, we are sharing a modified form containing relevant tweets to understand users' psychological behavior.
 
 
 ## Overall steps for dataset creation. 
