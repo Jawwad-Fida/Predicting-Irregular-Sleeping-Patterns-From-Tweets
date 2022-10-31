@@ -1,14 +1,19 @@
-# Overview
+# Predict Irregular Sleeping Patterns from Tweets
 
-Not following a regular bedtime and wake-up routine and obtaining different amounts of sleep each night might increase a person’s risk of obesity, heart problems, pressure, high blood sugar, and other metabolic problems. According to previous studies, poor sleep quality has been linked to various physiological and psychological difficulties. People have been using Twitter for more than ten years now. There are 300 million people tweeting about their daily thoughts, activities, and life experiences. We can learn about individuals who have irregular sleeping patterns by monitoring their tweets.
+## Overview
+Predict whether a user is suffering from ISP based on their social media interactions on Twitter. We identify users' ISP from their psycholinguistic characteristics and social media word usage patterns.
 
- - **Domain**: Machine Learning, Data Science, Deep Learning, NLP, Mental Health, Psycholinguistic Patterns, Social Media
+ - **Domain**:  Data Science, Deep Learning, Natural Language Processing, Mental Health, Psycholinguistic Patterns, Social Media.
+ - **Tools used**: Twitter API - Tweepy, LIWC2015, IBM SPSS Statistical Software.
 
-## Contributors
+## Authors
 
-- **Supervisor:** Dr. Md. Saddam Hossain Mukta, Associate Professor and Undergraduate Coordinator, United International University.
-- **Team Members:** [Mohammed Jawwadul Islam](https://www.linkedin.com/in/jawwadfida/), [Mohammad Fahad Al Rafi](https://www.linkedin.com/in/md-fahad-al-al-rafi-14b968111/), [Moumy Kabir](https://www.linkedin.com/in/pranto-podder-b78b97162/), [Pranto Podder](https://www.linkedin.com/in/aysha-siddika-577ba5224/), [Aysha Siddika](https://www.linkedin.com/in/moumy-kabir-156a0a232/), Nafisa Akhter
-- **Thesis Duration:** Feb 2022 - Sep 2022
+- **Corresponding author:** [Dr. Md. Saddam Hossain Mukta](https://cse.uiu.ac.bd/profiles/saddam/), Associate Professor and Undergraduate Coordinator, United International University (UIU), Bangladesh
+- **Other authors:** [Mohammed Jawwadul Islam](https://www.linkedin.com/in/jawwadfida/), [Mohammad Fahad Al Rafi](https://www.linkedin.com/in/md-fahad-al-al-rafi-14b968111/), [Moumy Kabir](https://www.linkedin.com/in/pranto-podder-b78b97162/), [Pranto Podder](https://www.linkedin.com/in/aysha-siddika-577ba5224/), [Aysha Siddika](https://www.linkedin.com/in/moumy-kabir-156a0a232/), Nafisa Akhter, and [Dr. Mohammed Eunus Ali](https://cse.buet.ac.bd/faculty_list/detail/eunus), Professor, Bangladesh University of Engineering and Technology (BUET), Bangladesh. 
+
+## Dataset 
+
+yeee
 
 
 ## Installing software and files
