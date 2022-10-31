@@ -9,7 +9,7 @@ Predict whether a user is suffering from ISP based on their social media interac
 - **Corresponding author:** [Dr. Md. Saddam Hossain Mukta](https://cse.uiu.ac.bd/profiles/saddam/), Associate Professor and Undergraduate Coordinator, United International University (UIU), Bangladesh
 - **Other authors:** [Mohammed Jawwadul Islam](https://www.linkedin.com/in/jawwadfida/), [Mohammad Fahad Al Rafi](https://www.linkedin.com/in/md-fahad-al-al-rafi-14b968111/), Nafisa Akhter, [Moumy Kabir](https://www.linkedin.com/in/pranto-podder-b78b97162/), [Pranto Podder](https://www.linkedin.com/in/aysha-siddika-577ba5224/), [Aysha Siddika](https://www.linkedin.com/in/moumy-kabir-156a0a232/), and [Dr. Mohammed Eunus Ali](https://cse.buet.ac.bd/faculty_list/detail/eunus), Professor, Bangladesh University of Engineering and Technology (BUET), Bangladesh. 
 
-# Dataset 
+# Data Availability statement
 
 When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), we collect tweets after getting permission from Twitter, which should not be exposed publicly without their consent. Hence, we cannot share the actual raw dataset. We are sharing a modified form containing relevant tweets to understand users' psychological behavior.
 
