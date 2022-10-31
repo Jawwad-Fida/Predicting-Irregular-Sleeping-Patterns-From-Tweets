@@ -16,6 +16,11 @@ Predict whether a user is suffering from ISP based on their social media interac
 
 When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), we collect tweets after getting permission from Twitter, which should not be exposed publicly without their consent. Hence, we cannot share the actual raw dataset. We are sharing a modified form containing relevant tweets to understand users' psychological behavior.
 
+
+## Overall steps for dataset creation. 
+
+<img src="https://user-images.githubusercontent.com/64092765/199010521-7c2b2123-62db-4308-a6a6-bfb65931b9b6.png" width="75%">
+
 ## Data Collection
 We used Twitter to collect 924 tweets from certain nations or continents, such as the United States, the United Kingdom, Canada, Australia, New Zealand, Bangladesh, and some countries in Africa. We looked at the times when their tweets were tweeted. We used random sampling on the user based on their tweeting time and word choices and labeled their file with "Irregular Sleeping Pattern Yes" and "Irregular Sleeping Pattern No" labels. For Irregular Sleeping Pattern Yes, a time interval of 1 am to 5 am, which indicated that these users suffered from irregular sleeping patterns. For Regular Sleeping Pattern users, we randomly selected users who did not tweet at night, in the time range from 1 am to 5 am. 
 
