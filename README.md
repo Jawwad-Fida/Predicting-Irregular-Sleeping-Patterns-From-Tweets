@@ -217,7 +217,7 @@ After filtering our dataset based on time, we applied another filtering techniqu
 Linguistic Inquiry and Word Count (LIWC) is a text analysis program that counts words in psychologically significant categories. LIWC enables users to examine the inner workings of literary works. When a user uploads a text to LIWC, he or she will receive an output with more than 70 columns of data. Here, we have analyzed users’ time-filtered tweets using LIWC, which sorts different features from texts into more than 70 different categories. To uncover the correlated LIWC word categories, we used Fisher’s linear discriminant analysis with IBM Corp’s SPSS statistical program. We got 34 word categories in total with high correlation coefficient scores. Categories with higher scores (mostly greater than 2.0) are better predictors.  The scores are in the range from 2.686 to 42.778.
 
 ```Python
-# Correlated Liwc categories for both irregular and regular patterns
+# Correlated LIWC categories
 
 liwc_category = {
     "posemo": ['good','love','happy','hope','heart','smile','laugh','kiss','wink','hug'],
