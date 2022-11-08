@@ -14,7 +14,7 @@ Predict whether a user is suffering from ISP based on their social media interac
 
 ## Data Availability
 
-When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. We collect tweets after getting permission from Twitter. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), the tweets collected are their public property, which should only be exposed partially publicly with their consent, a consent that is granted with the Twitter API. Therefore, a modified version of the data containing psycholinguistic characteristics of the tweets is distributed. The psycholinguistic dataset is generated using Linguistic Inquiry and Word Count (LIWC).
+When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. We collect tweets after getting permission from Twitter. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), the tweets collected are their public property, which should only be exposed partially publicly with their consent, a consent that is granted with the Twitter API. Therefore, a modified version of the data containing psycholinguistic characteristics of the tweets is distributed.
 
 
 ## Overall steps for dataset creation. 
