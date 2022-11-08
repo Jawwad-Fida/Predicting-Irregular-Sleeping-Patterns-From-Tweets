@@ -91,16 +91,17 @@ def time_conversion(time_df):
     temp_object = datetime.strptime(current_utc_time, "%Y-%m-%d %H:%M:%S")
 
     # UTC time conversion --> + or - hours 
-    # temp_six_hours_from_now = temp_object + timedelta(hours=6) # BD
-    # temp_six_hours_from_now = temp_object + timedelta(hours=8) # BD time ++
-    # temp_six_hours_from_now = temp_object + timedelta(hours=4) # BD time --
-    # temp_six_hours_from_now = temp_object + timedelta(hours=10) # Aus
-    # temp_six_hours_from_now = temp_object + timedelta(hours=12) # New Zealand
-    # temp_six_hours_from_now = temp_object + timedelta(hours=1) # UK
-    # temp_six_hours_from_now = temp_object + timedelta(hours=2) # South Africa
-    temp_six_hours_from_now = temp_object - timedelta(hours=4) # USA
-
-    time_df['date'][i] = temp_six_hours_from_now
+    
+    temp_hours_from_now = temp_object + timedelta(hours=10) # Australia
+    # temp_hours_from_now = temp_object + timedelta(hours=6) # BD
+    # temp_hours_from_now = temp_object + timedelta(hours=8) # BD time ++
+    # temp_hours_from_now = temp_object + timedelta(hours=4) # BD time --
+    # temp_hours_from_now = temp_object + timedelta(hours=12) # New Zealand
+    # temp_hours_from_now = temp_object + timedelta(hours=1) # UK
+    # temp_hours_from_now = temp_object + timedelta(hours=2) # South Africa
+    # temp_hours_from_now = temp_object - timedelta(hours=4) # USA
+    
+    time_df['date'][i] = temp_hours_from_now
 
   return time_df
 ```
