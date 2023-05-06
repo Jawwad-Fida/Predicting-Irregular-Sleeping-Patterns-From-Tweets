@@ -16,38 +16,6 @@ Predict whether a user is suffering from ISP based on their social media interac
 
 When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. We collect tweets after getting permission from Twitter. The tweets are collected using the [Twitter API, Tweepy](https://developer.twitter.com/en/products/twitter-api/academic-research) for academic research. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), the tweets collected are their public property, which cannot be made public without their permission. As a result, a modified version of the data containing psycholinguistic characteristics of the tweets is distributed.
 
-### Tweepy code
-
-```Python
-import tweepy #https://github.com/tweepy/tweepy
-import pandas as pd
-import csv
-
-access_key = ""
-access_secret = ""
-consumer_key = ""
-consumer_secret = ""
-
-screen_name=""
-
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_key, access_secret)
-api = tweepy.API(auth)
-alltweets = []	
-new_tweets = api.user_timeline(screen_name = screen_name, count=200)
-alltweets.extend(new_tweets)
-oldest = alltweets[-1].id - 1
-while len(new_tweets) > 0:
-    print("getting tweets before %s" % (oldest))
-    new_tweets = api.user_timeline(screen_name = screen_name,count=200,max_id=oldest)
-    alltweets.extend(new_tweets)
-    oldest = alltweets[-1].id - 1
-    print("...%s tweets downloaded so far" % (len(alltweets)))
-    
-outtweets = [[tweet.id_str, tweet.created_at, tweet.text] for tweet in alltweets] # tweet.text for actual tweet, OR tweet.text.encode("utf-8") for unicode dataset
-dataframe=pd.DataFrame(outtweets,columns=['twitter_id','date','tweet'])
-dataframe.to_csv("%s_.csv"%(screen_name),index=False)
-```
 
 ## Overall steps for dataset creation. 
 
@@ -359,9 +327,6 @@ We used Bidirectional Encoder Representations from Transformers (BERT) to genera
 ### Building Deep Learning Classifiers
 
 Deep neural networks are artificial neural networks with numerous hidden layers between input and output. Since deep learning can train both categories, it has a significant impact on both supervised and unsupervised learning. Deep learning includes many networks such as CNN (Convolutional Neural Networks), RNN (Recurrent Neural Networks), etc. In natural language processing (NLP), neural networks are used for text generation, sentiment analysis, word representation, sentence classification, feature presentation, and many other tasks. We have used LSTM, Bi-LSTM and 1D CNN as our deep learning models. We chose 1D CNN as it is a great neural network for feature extraction. The use of LSTM and Bi-LSTM is to prevent the problem of long term dependency.
-
-
-![class distribution](https://user-images.githubusercontent.com/108185893/180473150-aa657c14-46cf-4c8e-82c4-c7e3e4d129c7.png)
 
 #### Train Validation Split
 
