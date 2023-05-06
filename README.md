@@ -328,17 +328,6 @@ We used Bidirectional Encoder Representations from Transformers (BERT) to genera
 
 Deep neural networks are artificial neural networks with numerous hidden layers between input and output. Since deep learning can train both categories, it has a significant impact on both supervised and unsupervised learning. Deep learning includes many networks such as CNN (Convolutional Neural Networks), RNN (Recurrent Neural Networks), etc. In natural language processing (NLP), neural networks are used for text generation, sentiment analysis, word representation, sentence classification, feature presentation, and many other tasks. We have used LSTM, Bi-LSTM and 1D CNN as our deep learning models. We chose 1D CNN as it is a great neural network for feature extraction. The use of LSTM and Bi-LSTM is to prevent the problem of long term dependency.
 
-#### Class Distribution
-
-```Python
-# This target_distribution basically is a Pandas series (simply a data frame containing single column)
-target_distribution = df['Class'].value_counts() 
-
-plt.figure(figsize=(8,6))
-plt.title('Class distribution')
-plt.pie(target_distribution, labels=target_distribution.index, autopct='%1.1f%%', textprops={'fontsize':13})
-plt.show();
-```
 
 ![class distribution](https://user-images.githubusercontent.com/108185893/180473150-aa657c14-46cf-4c8e-82c4-c7e3e4d129c7.png)
 
