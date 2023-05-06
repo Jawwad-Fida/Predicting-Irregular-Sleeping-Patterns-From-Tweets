@@ -324,4 +324,246 @@ def word_filtering(data,liwc_category):
 
 We used Bidirectional Encoder Representations from Transformers (BERT) to generate contextualized word embeddings. We generated BERT vectors using a pre-trained model named [Bert-based-uncased](https://huggingface.co/bert-base-uncased) from Hugging Face sentence-transformers library. The tweet sentences were converted into a 768-dimensional vector space. Shape of the data after word embedding is 924x768. BERT word embeddings is our final dataset which contains both psycholinguistic and word embedding–based analyses regarding the users' tweets. These analysis are the independent variables, while the dependent variable is Irregular Sleep Yes and Irregular Sleep No. BERT word embeddings is our final dataset which is used as input to our classification models (deep learning architectures). 
 
+### Building Deep Learning Classifiers
 
+Deep neural networks are artificial neural networks with numerous hidden layers between input and output. Since deep learning can train both categories, it has a significant impact on both supervised and unsupervised learning. Deep learning includes many networks such as CNN (Convolutional Neural Networks), RNN (Recurrent Neural Networks), etc. In natural language processing (NLP), neural networks are used for text generation, sentiment analysis, word representation, sentence classification, feature presentation, and many other tasks. We have used LSTM, Bi-LSTM and 1D CNN as our deep learning models. We chose 1D CNN as it is a great neural network for feature extraction. The use of LSTM and Bi-LSTM is to prevent the problem of long term dependency.
+
+#### Class Distribution
+
+```Python
+# This target_distribution basically is a Pandas series (simply a data frame containing single column)
+target_distribution = df['Class'].value_counts() 
+
+plt.figure(figsize=(8,6))
+plt.title('Class distribution')
+plt.pie(target_distribution, labels=target_distribution.index, autopct='%1.1f%%', textprops={'fontsize':13})
+plt.show();
+```
+
+![class distribution](https://user-images.githubusercontent.com/108185893/180473150-aa657c14-46cf-4c8e-82c4-c7e3e4d129c7.png)
+
+#### Train Validation Split
+
+```Python
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=0, stratify=y)
+
+X_val = np.copy(X_test)
+y_val = np.copy(y_test)
+```
+
+#### LSTM
+
+```Python
+lstm_model1 = Sequential()
+
+# To stack LSTM cells on top of each other --> return_sequences=True which determines whether to return the last output in the output sequence, or the full sequence
+lstm_model1.add(LSTM(units = 192, activation='tanh',return_sequences = True, input_shape=(1,X_train_reshaped.shape[2])))
+lstm_model1.add(Dropout(0.2))
+
+lstm_model1.add(LSTM(units = 192, activation='tanh',return_sequences = True))
+lstm_model1.add(Dropout(0.2))
+
+lstm_model1.add(layers.Flatten())
+
+# optional dense layer on top of output of LSTM cell
+lstm_model1.add(Dense(96,activation='relu'))
+lstm_model1.add(Dropout(0.2))
+
+lstm_model1.add(Dense(1,activation='sigmoid'))
+
+```
+
+#### Bidirectional Long Short-Term Memory (BiLSTM)
+
+```Python
+bi_lstm_model = Sequential()
+
+# To stack LSTM cells on top of each other --> return_sequences=True which determines whether to return the last output in the output sequence, or the full sequence
+bi_lstm_model.add(Bidirectional(LSTM(units = 96, activation='tanh',return_sequences = True, input_shape=(1,X_train_reshaped.shape[2]))))
+bi_lstm_model.add(Dropout(0.2))
+
+bi_lstm_model.add(Bidirectional(LSTM(units = 96, activation='tanh',return_sequences = True)))
+bi_lstm_model.add(Dropout(0.2))
+
+bi_lstm_model.add(layers.Flatten())
+
+bi_lstm_model.add(Dense(48,activation='relu'))
+bi_lstm_model.add(Dropout(0.2))
+
+# optional dense layer on top of output of LSTM cell
+bi_lstm_model.add(Dense(1,activation='sigmoid'))
+```
+
+#### 1D Convolutional Neural Network (CNN)
+
+```Python
+# intialize the network, cnn object
+cnn_model = tf.keras.models.Sequential() 
+
+# Add the 1st Convolutional layer
+cnn_model.add(tf.keras.layers.Conv1D(filters=64, kernel_size=3,activation='relu',input_shape=(768, 1)))
+
+# pool_size --> 2 (which means 2x2)
+cnn_model.add(tf.keras.layers.MaxPooling1D(pool_size=2))
+
+# Add the 2nd Convolutional layer
+cnn_model.add(tf.keras.layers.Conv1D(filters=64,kernel_size=3,activation='relu'))
+cnn_model.add(tf.keras.layers.MaxPooling1D(pool_size=2))
+
+# Create the Flattening layers (1D layers) by Flattern class from Keras
+cnn_model.add(tf.keras.layers.Flatten())
+
+# create a full connected layer
+cnn_model.add(tf.keras.layers.Dense(100,activation='relu'))
+cnn_model.add(tf.keras.layers.Dropout(0.5))
+
+# Binary classification - 0 or 1, so dimension of neuron is 1 (1 output neuron)
+# sigmoid activation function (gives probability)
+cnn_model.add(tf.keras.layers.Dense(1,activation='sigmoid'))
+```
+
+### Building Hybrid Models
+
+Though LSTMs tackle the long-term dependency of RNNs and are highly used in text classification tasks, they are not without problems. LSTM fails to extract context information from the future token in a text and cannot recognize different relationships between the words. To tackle this weakness, 1D CNN has been proposed. During the feature extraction step, CNN can perform more accurately than LSTM. Both CNN and LSTM have some advantages and weaknesses. To mitigate the weakness and take advantage of both models, we built 2 hybrid models BiLSTM + CNN hybrid model, and an attention-based BiLSTM + CNN hybrid model. Our first hybrid model is 1D CNN + LSTM. Here 1D CNN acts as an encoder which extracts important features and passes to the LSTM model which acts as a decoder. Our second hybrid model is the same as before, just an attention layer is added after the LSTM model to increase the accuracy of our hybrid model.
+
+#### Hybrid Model 1 (CNN + BiLSTM)
+
+```Python
+inputs = Input(shape = (768,1))
+model = Conv1D(filters=64, kernel_size=3,activation='relu')(inputs)
+model = MaxPooling1D(pool_size=2)(model)
+
+model = Conv1D(filters=64, kernel_size=3,activation='relu')(model)
+model = MaxPooling1D(pool_size=2)(model)
+
+model = Conv1D(filters=64, kernel_size=3,activation='relu')(model)
+model = MaxPooling1D(pool_size=2)(model)
+
+model = Flatten()(model)
+model = RepeatVector(1)(model)
+
+model = Bidirectional(LSTM(units = 96, activation='tanh',return_sequences = True))(model)
+model = Dropout(0.2)(model)
+
+model = Bidirectional(LSTM(units = 96, activation='tanh',return_sequences = True))(model)
+model = Dropout(0.2)(model)
+
+model = Flatten()(model)
+dense = Dense(48,activation='relu')(model)
+dense = Dropout(0.2)(dense)
+
+output = Dense(1,activation='sigmoid')(dense)
+model = Model(inputs = inputs, outputs = output) 
+```
+
+#### Hybrid Model 2 (CNN+BiLSTM+Attention)
+
+Same architecture as the above hyrbid model with an attention layer. The same dense layer is used at the end
+
+```Python
+# Input from BiLSTM model
+weights = tf.keras.layers.AdditiveAttention()([model, model])
+
+model = Flatten()(weights)
+
+dense = Dense(48,activation='relu')(model)
+dense = Dropout(0.2)(dense)
+
+output = Dense(1,activation='sigmoid')(dense)
+model = Model(inputs = inputs, outputs = output)
+``` 
+
+#### Predictions
+
+#### Evaluation Metrics
+
+```Python
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, matthews_corrcoef
+
+def evaluate_preds(y_test,y_pred):
+    accuracy = accuracy_score(y_test,y_pred)
+    precision = precision_score(y_test,y_pred)
+    recall = recall_score(y_test,y_pred) 
+    f1 = f1_score(y_test,y_pred)
+    mcc = matthews_corrcoef(y_test,y_pred)
+
+    metric_dict = {
+        "accuracy":round(accuracy,2),
+        "precision":round(precision,2),
+        "recall":round(recall,2),
+        "f1":round(f1,2),
+        "mcc": round(mcc,2) 
+    } # A dictionary that stores the results of the evaluation metrics
+    
+    print(f"Acc: {accuracy:.2f}")
+    print(f"Precision: {precision:.2f}")
+    print(f"Recall: {recall:.2f}")
+    print(f"F1 score: {f1:.2f}")
+    print(f'MCC Score: {mcc:.2f}')
+    
+    return metric_dict
+```
+
+#### Prediction on Test Dataset
+
+```Python
+data2 = pd.read_csv("/content/Test Data Bert Embeddings 20 percent.csv")
+
+df2 = data2.sample(frac=1).reset_index(drop=True)
+
+X2 = df2.loc[:, df2.columns != 'Class']
+y2 = df2['Class']
+
+X2_train, X2_test, y2_train, y2_test = train_test_split(X2, y2, test_size=0.99, random_state=0, stratify=y2)
+
+le2 = LabelEncoder()
+y2_train = le2.fit_transform(y2_train)
+y2_test = le2.transform(y2_test)
+
+X2_train = np.array(X2_train)
+X2_test = np.array(X2_test)
+
+# The reshapes are for individual LSTM and BiLSTM models
+X2_train_reshaped = X2_train[:, np.newaxis,:]
+X2_test_reshaped = X2_test[:, np.newaxis,:]
+
+# Make predictions
+hybrid_model_pred_probs = model.predict(X2_test)
+
+# Round out predictions and reduce to 1-dimensional array
+hybrid_model_preds = tf.squeeze(tf.round(hybrid_model_pred_probs))
+
+hybrid_model_metrics = evaluate_preds(y2_test, hybrid_model_preds)
+```
+#### Roc Curve Area
+
+```Python
+# CREATE A FUNCTION for plotting ROC curve
+
+def plot_roc_curve(fpr,tpr, roc_auc):
+    """
+    Plots a ROC curve given the false positive rate(fpr)
+    and true positive rate (tpr) of a model
+    """
+    plt.figure(figsize=(8,6)) 
+    # Plot roc curve (X - fpr, Y-tpr)
+    plt.plot(fpr,tpr,color="orange",label="ROC curve (area = %0.2f)" % roc_auc)
+    
+    # Plot line with no predictive power(baseline) - for comparison of our model
+    plt.plot([0,1],[0,1],color="darkblue",linestyle="--")
+    
+    # Customize the plot
+    plt.xlabel("False positive rate (fpr)")
+    plt.ylabel("True positive rate (tpr)")
+    plt.title("Receiver Operating Characteristic (ROC) Curve")
+    plt.legend()
+    plt.show()
+    
+#### Calculate fpr, tpr and thresholds
+p_fpr, p_tpr, thresholds = roc_curve(y2_test, hybrid_model_preds)
+n_fpr, n_tpr, thresholds = roc_curve(y2_test, hybrid_model_preds)
+
+plot_roc_curve(p_fpr,p_tpr,metrics.auc(p_fpr, p_tpr))
+```
