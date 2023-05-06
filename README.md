@@ -14,7 +14,7 @@ Predict whether a user is suffering from ISP based on their social media interac
 
 ## Data Availability
 
-When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. We collect tweets after getting permission from Twitter. The tweets are collected using the [Twitter API, Tweepy](https://developer.twitter.com/en/products/twitter-api/academic-research) for academic research. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), the tweets collected are their public property, which cannot be made public without their permission. As a result, a modified version of the data containing psycholinguistic characteristics of the tweets is distributed.
+When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. We collect tweets after getting permission from Twitter. The tweets are collected using the [Twitter API, Tweepy](https://developer.twitter.com/en/products/twitter-api/academic-research) for academic research. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), the tweets collected are their public property, which cannot be made public without their permission. As a result, a modified version of the data is distributed.
 
 
 ## Overall steps for dataset creation. 
