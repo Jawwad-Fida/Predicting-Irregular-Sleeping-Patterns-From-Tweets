@@ -9,8 +9,8 @@ Predict whether a user is suffering from ISP based on their social media interac
 
 ## Authors
 
-- **Corresponding author:** [Dr. Md. Saddam Hossain Mukta](https://cse.uiu.ac.bd/profiles/saddam/), Associate Professor and Undergraduate Coordinator, United International University (UIU), Bangladesh
-- **Other authors:** [Mohammed Jawwadul Islam](https://www.linkedin.com/in/jawwadfida/), [Mohammad Fahad Al Rafi](https://www.linkedin.com/in/md-fahad-al-al-rafi-14b968111/), Nafisa Akhter, [Moumy Kabir](https://www.linkedin.com/in/pranto-podder-b78b97162/), [Pranto Podder](https://www.linkedin.com/in/aysha-siddika-577ba5224/), [Aysha Siddika](https://www.linkedin.com/in/moumy-kabir-156a0a232/), [Dr. Salekul Islam](https://cse.uiu.ac.bd/profiles/salekul/), and [Dr. Mohammed Eunus Ali](https://cse.buet.ac.bd/faculty_list/detail/eunus). 
+- **Corresponding author:** [Md. Saddam Hossain Mukta](https://cse.uiu.ac.bd/profiles/saddam/), Associate Professor and Undergraduate Coordinator, United International University (UIU), Bangladesh
+- **Other authors:** [Mohammed Jawwadul Islam](https://www.linkedin.com/in/jawwadfida/), [Mohammad Fahad Al Rafi](https://www.linkedin.com/in/md-fahad-al-al-rafi-14b968111/), Nafisa Akhter, [Moumy Kabir](https://www.linkedin.com/in/pranto-podder-b78b97162/), [Pranto Podder](https://www.linkedin.com/in/aysha-siddika-577ba5224/), [Aysha Siddika](https://www.linkedin.com/in/moumy-kabir-156a0a232/), [Salekul Islam](https://cse.uiu.ac.bd/profiles/salekul/), and [Mohammed Eunus Ali](https://cse.buet.ac.bd/faculty_list/detail/eunus). 
 
 ## Data Availability
 
