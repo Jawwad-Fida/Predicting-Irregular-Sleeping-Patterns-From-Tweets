@@ -7,10 +7,12 @@ Predict whether a user is suffering from ISP based on their social media interac
  - **Domain**:  Data Science, Deep Learning, Natural Language Processing, Mental Health, Psycholinguistic Patterns, Social Media.
  - **Tools used**: Twitter API - Tweepy, LIWC2015, IBM SPSS Statistical Software.
 
+<!--
 ## Authors
 
 - **Corresponding author:** [Md. Saddam Hossain Mukta](https://cse.uiu.ac.bd/profiles/saddam/), Associate Professor and Undergraduate Coordinator, United International University (UIU), Bangladesh
-- **Other authors:** [Mohammed Jawwadul Islam](https://www.linkedin.com/in/jawwadfida/), [Mohammad Fahad Al Rafi](https://www.linkedin.com/in/md-fahad-al-al-rafi-14b968111/), Nafisa Akhter, [Moumy Kabir](https://www.linkedin.com/in/pranto-podder-b78b97162/), [Pranto Podder](https://www.linkedin.com/in/aysha-siddika-577ba5224/), [Aysha Siddika](https://www.linkedin.com/in/moumy-kabir-156a0a232/), [Salekul Islam](https://cse.uiu.ac.bd/profiles/salekul/), and [Mohammed Eunus Ali](https://cse.buet.ac.bd/faculty_list/detail/eunus). 
+- **Other authors:** [Mohammed Jawwadul Islam](https://www.linkedin.com/in/jawwadfida/), [Mohammad Fahad Al Rafi](https://www.linkedin.com/in/md-fahad-al-al-rafi-14b968111/), [Moumy Kabir](https://www.linkedin.com/in/pranto-podder-b78b97162/), [Pranto Podder](https://www.linkedin.com/in/aysha-siddika-577ba5224/), [Aysha Siddika](https://www.linkedin.com/in/moumy-kabir-156a0a232/), [Salekul Islam](https://cse.uiu.ac.bd/profiles/salekul/), and [Mohammed Eunus Ali](https://cse.buet.ac.bd/faculty_list/detail/eunus). 
+-->
 
 ## Data Availability
 
@@ -19,7 +21,8 @@ When collecting data from Twitter for our experiments, we followed Twitter's rul
 
 ## Overall steps for dataset creation. 
 
-<img src="https://user-images.githubusercontent.com/64092765/199010521-7c2b2123-62db-4308-a6a6-bfb65931b9b6.png" width="75%">
+<img src="https://github.com/Jawwad-Fida/Predicting-Irregular-Sleeping-Patterns-From-Tweets/assets/64092765/89ad9983-7c59-495b-a17f-deb5e55b05d7" width="75%">
+
 
 ## Data Collection
 We used Twitter to collect 924 user tweets from certain nations or continents, such as the United States, the United Kingdom, Canada, Australia, New Zealand, Bangladesh, and some countries in Africa. We looked at the times when their tweets were tweeted. We used random sampling on the user based on their tweeting time and word choices and labeled their file with "Irregular Sleeping Pattern Yes" and "Irregular Sleeping Pattern No" labels. For Irregular Sleeping Pattern Yes, a time interval of 1 am to 5 am. For Regular Sleeping Pattern users, we randomly selected users who did not tweet at night, in the time range from 1 am to 5 am. 
@@ -523,7 +526,36 @@ hybrid_model_preds = tf.squeeze(tf.round(hybrid_model_pred_probs))
 
 hybrid_model_metrics = evaluate_preds(y2_test, hybrid_model_preds)
 ```
-#### Roc Curve Area
+
+#### Learning curves plot
+
+```Python
+# CREATE A FUNCTION for plotting ROC curve
+
+def plot_learning_curve(accuracy, val_accuracy, loss, val_loss):
+    plt.figure(figsize=(10,8))
+    plt.title('Accuracy vs Loss - CNN + BiLSTM + Attention', fontsize=16)
+
+    plt.plot(accuracy, label='train (Accuracy)',c='red')
+    plt.plot(val_accuracy, label='validation (Accuracy)',c='blue')
+    plt.plot(loss, label='train (Loss)',c='green')
+    plt.plot(val_loss, label='validation (Loss)',c='orange')
+    
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    plt.xlabel('Epoch', fontsize=16)
+    plt.ylabel('Accuracy and Loss', fontsize=16)
+    plt.legend(prop={'size': 13})
+    plt.show()
+    
+#### Calculate fpr, tpr and thresholds
+p_fpr, p_tpr, thresholds = roc_curve(y2_test, hybrid_model_preds)
+n_fpr, n_tpr, thresholds = roc_curve(y2_test, hybrid_model_preds)
+
+plot_roc_curve(p_fpr,p_tpr,metrics.auc(p_fpr, p_tpr))
+```
+
+#### Roc Curve Area Plot
 
 ```Python
 # CREATE A FUNCTION for plotting ROC curve
