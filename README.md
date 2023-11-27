@@ -1,5 +1,5 @@
 
-# Predicting Irregular Sleeping Patterns from Tweets
+# Identifying Irregular Sleeping Patterns using Psycholinguistic Features from Tweets
 
 ## Overview
 Predict whether a user is suffering from ISP based on their social media interactions on Twitter. We identify users' ISP from their psycholinguistic characteristics and social media word usage patterns.
