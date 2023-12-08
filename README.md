@@ -4,7 +4,9 @@
 ## Overview
 Predict whether a user is suffering from ISP based on their social media interactions on Twitter. We identify users' ISP from their psycholinguistic characteristics and social media word usage patterns.
 
- - **Domain**:  Data Science, Deep Learning, Natural Language Processing, Mental Health, Psycholinguistic Patterns, Social Media.
+Maintaining a consistent bedtime schedule and getting appropriate sleep at night is crucial for good health. Not following a regular bedtime routine and having different amounts of sleep each night might increase a person’s risk of obesity, cardiovascular problems, high blood pressure, insulin level, and other metabolic problems. To better understand individuals' sleeping patterns, in this research, we examine tweets to identify Irregular Sleeping Patterns (ISP) using psycholinguistic (i.e., LIWC) and contextual (i.e., BERT) features from user tweets. 
+
+ - **Domain**:  Data Science, Deep Learning, Natural Language Processing, Mental Health, Psycholinguistic Patterns,  Tweet Analysis, Social Media.
  - **Tools used**: Twitter API - Tweepy, LIWC2015, IBM SPSS Statistical Software.
 
 <!--
