@@ -16,7 +16,7 @@ Maintaining a consistent bedtime schedule and getting appropriate sleep at night
 
 ## Data Availability
 
-When collecting data from Twitter for our experiments, we followed Twitter's rules and regulations for data privacy. We collect tweets after getting permission from Twitter. The tweets are collected using the [Twitter API, Tweepy](https://developer.twitter.com/en/products/twitter-api/academic-research) for academic research. According to [Twitter's policy](https://developer.twitter.com/en/developer-terms/policy), the tweets collected are their public property, which cannot be made public without their permission. As a result, a modified version of the data is distributed.
+When collecting data from X(Twitter) for our experiments, we followed X(Twitter)'s rules and regulations for data privacy. We collect tweets after getting permission from X(Twitter). The tweets are collected using the [Twitter API, Tweepy](https://developer.x.com/en/use-cases/do-research/academic-research) for academic research. According to [X(Twitter)'s policy](https://developer.x.com/en/developer-terms/policy), the tweets collected are their public property, which cannot be made public without their permission. As a result, a modified version of the data is distributed.
 
 
 ## Overall steps for dataset creation. 
@@ -25,7 +25,7 @@ When collecting data from Twitter for our experiments, we followed Twitter's rul
 
 
 ## Data Collection
-We used Twitter to collect 924 user tweets from certain nations or continents, such as the United States, the United Kingdom, Canada, Australia, New Zealand, Bangladesh, and some countries in Africa. We looked at the times when their tweets were tweeted. We used random sampling on the user based on their tweeting time and word choices and labeled their file with "Irregular Sleeping Pattern Yes" and "Irregular Sleeping Pattern No" labels. For Irregular Sleeping Pattern Yes, a time interval of 1 am to 5 am. For Regular Sleeping Pattern users, we randomly selected users who did not tweet at night, in the time range from 1 am to 5 am. 
+We used X(Twitter) to collect 924 user tweets from certain nations or continents, such as the United States, the United Kingdom, Canada, Australia, New Zealand, Bangladesh, and some countries in Africa. We looked at the times when their tweets were tweeted. We used random sampling on the user based on their tweeting time and word choices and labeled their file with "Irregular Sleeping Pattern Yes" and "Irregular Sleeping Pattern No" labels. For Irregular Sleeping Pattern Yes, a time interval of 1 am to 5 am. For Regular Sleeping Pattern users, we randomly selected users who did not tweet at night, in the time range from 1 am to 5 am. 
 
 ## Filtering tweets based on time
 
