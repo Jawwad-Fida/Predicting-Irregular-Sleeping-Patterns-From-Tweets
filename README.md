@@ -5,7 +5,7 @@
 Maintaining a consistent bedtime schedule and getting appropriate sleep at night is crucial for good health. Not following a regular bedtime routine and having different amounts of sleep each night might increase a person’s risk of obesity, cardiovascular problems, high blood pressure, insulin level, and other metabolic problems. To better understand individuals' sleeping patterns, in this research, we examine tweets to identify whether a user is suffering from Irregular Sleeping Patterns (ISP) using psycholinguistic (i.e., LIWC) and contextual (i.e., BERT) features from user tweets. 
 
  - **Domain**:  Data Science, Deep Learning, Natural Language Processing, Psychological and Mental User Behavior, Psycholinguistic Patterns,  Tweet Analysis, Social Media.
- - **Tools used**: Twitter API - Tweepy, LIWC, IBM SPSS Statistical Software.
+ - **Tools used**: X(Twitter) API - Tweepy, LIWC, IBM SPSS Statistical Software.
 
 <!--
 ## Authors
@@ -16,7 +16,7 @@ Maintaining a consistent bedtime schedule and getting appropriate sleep at night
 
 ## Data Availability
 
-When collecting data from X(Twitter) for our experiments, we followed X(Twitter)'s rules and regulations for data privacy. We collect tweets after getting permission from X(Twitter). The tweets are collected using the [Twitter API, Tweepy](https://developer.x.com/en/use-cases/do-research/academic-research) for academic research. According to [X(Twitter)'s policy](https://developer.x.com/en/developer-terms/policy), the tweets collected are their public property, which cannot be made public without their permission. As a result, a modified version of the data is distributed.
+When collecting data from X(Twitter) for our experiments, we followed X(Twitter)'s rules and regulations for data privacy. We collect tweets after getting permission from X(Twitter). The tweets are collected using the [X(Twitter) API, Tweepy](https://developer.x.com/en/use-cases/do-research/academic-research) for academic research. According to [X(Twitter)'s policy](https://developer.x.com/en/developer-terms/policy), the tweets collected are their public property, which cannot be made public without their permission. As a result, a modified version of the data is distributed.
 
 
 ## Overall steps for dataset creation. 
